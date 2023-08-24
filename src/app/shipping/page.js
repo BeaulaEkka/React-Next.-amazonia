@@ -33,7 +33,7 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-[80%] mx-auto">
       <CheckoutWizard activeStep={1} />
       <form
         className="mx-auto max-w-screen-md "
