@@ -39,14 +39,27 @@ export default function ImageSlider() {
     setCurrentIndex(newIndex);
   };
 
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     nextSlide();
+  //   }, 3000);
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, [currentIndex]);
+
   useEffect(() => {
     const interval = setInterval(() => {
-      nextSlide();
+      setCurrentIndex((prevIndex) => {
+        const isLastSlide = prevIndex === photos.length - 1;
+        const newIndex = isLastSlide ? 0 : prevIndex + 1;
+        return newIndex;
+      });
     }, 3000);
     return () => {
       clearInterval(interval);
     };
-  }, [currentIndex]);
+  }, [photos.length]);
 
   return (
     <div className="max-w-[1920px] h-[500px] w-full mx-auto my-[-1rem]  relative group  ">
