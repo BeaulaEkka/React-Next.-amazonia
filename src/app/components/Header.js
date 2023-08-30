@@ -39,10 +39,12 @@ const Header = () => {
         </div>
 
         {/* signin */}
-        <div className="px-4 border border-transparent hover:border-white cursor-pointer duration-300  flex-col items-left justify-left h-[70%] hidden md:block lg:block">
-          <p className="text-sm">Hello, Sign In</p>
-          <p className="text-lg font-bold">Account & Lists</p>
-        </div>
+        <Link href="/login">
+          <div className="px-4 border border-transparent hover:border-white cursor-pointer duration-300  flex-col items-left justify-left h-[70%] hidden md:block lg:block">
+            <p className="text-sm">Hello, Sign In</p>
+            <p className="text-lg font-bold">Account & Lists</p>
+          </div>
+        </Link>
         {/* favourite */}
         {/* <Link href="/favourites"> */}
         <div className="px-4 border border-transparent hover:border-white cursor-pointer duration-300  flex-col items-left justify-left h-[70%] hidden md:block lg:block">
