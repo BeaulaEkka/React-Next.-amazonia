@@ -26,7 +26,7 @@ const SubHeader = () => {
       </p>
       <p className="hidden md:inline-flex items-center  h-8 px-2 border border-transparent hover:border-white cursor-pointer duration-300">
         {session?.user.name
-          ? `${session.user.name} Your Amazon.nl`
+          ? `${session?.user?.name} Your Amazon.nl`
           : "Your Amazon.nl"}
       </p>
       <p className="hidden md:inline-flex items-center  h-8 px-2 border border-transparent hover:border-white cursor-pointer duration-300">

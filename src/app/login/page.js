@@ -2,11 +2,11 @@
 import Link from "next/link";
 import React from "react";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 
 const Page = () => {
-  const router = useRouter();
+  // const router = useRouter();
   const [data, setData] = useState({
     email: "",
     password: "",

@@ -7,7 +7,7 @@ const Page = () => {
   console.log("session", session);
   return (
     <div>
-      <p>Hi {session?.user.name}</p>
+      <p>Hi {session?.user?.name}</p>
       <UserInfo />
     </div>
   );
