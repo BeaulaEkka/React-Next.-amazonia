@@ -1,9 +1,9 @@
 "use client";
-import React from "react";
+
 import { useSession } from "next-auth/react";
 import UserInfo from "../components/UserInfo";
 const Page = () => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   console.log("session", session);
   return (
     <div>

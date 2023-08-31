@@ -5,7 +5,12 @@ import { SlLocationPin } from "react-icons/sl";
 import { HiOutlineSearch } from "react-icons/hi";
 import Image from "next/image";
 
+import { useSession } from "next-auth/react";
+
 const Header = () => {
+  const { data: session, status } = useSession();
+  console.log("session", session);
+  console.log("status", status);
   const { loading, cartItems } = useSelector((state) => state.cart);
 
   return (
@@ -41,7 +46,7 @@ const Header = () => {
         {/* signin */}
         <Link href="/login">
           <div className="px-4 border border-transparent hover:border-white cursor-pointer duration-300  flex-col items-left justify-left h-[70%] hidden md:block lg:block">
-            <p className="text-sm">Hello, Sign In</p>
+            <p className="text-sm">Hello, {session?.user?.name}</p>
             <p className="text-lg font-bold">Account & Lists</p>
           </div>
         </Link>
