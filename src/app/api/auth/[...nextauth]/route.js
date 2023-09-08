@@ -4,7 +4,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import User from "../../.././../models/user";
 import { connectMongoDB } from "@/lib/mongodb";
 import GithubProvider from "next-auth/providers/github";
-import { redirect } from "next/dist/server/api-utils";
 import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions = {
