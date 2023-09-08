@@ -66,10 +66,9 @@ export default function RegisterForm() {
         setSuccessMessage("Registration successful!"); // Set success message
         setError("");
       } else {
-        console.log("User registration failed.", res.status);
+        setError("User registration failed.", res.status);
       }
     } catch (error) {
-      console.log("Error during registration: ", error);
       setError("User registration failed.", error);
     }
   };

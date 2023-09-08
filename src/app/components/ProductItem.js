@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ProductRate from "./ProductRate";
 import AddToCart from "./AddToCart";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToFavourite, removeFromFavorite } from "@/redux/slices/cartSlice";
 import { HiHeart, HiOutlineHeart } from "react-icons/hi";
 import { useState } from "react";
@@ -12,8 +12,7 @@ const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
   const [isFavorited, setIsFavorited] = useState(false);
 
-  const favouriteItems = useSelector((state) => state.cart.favouriteItems);
-  console.log(favouriteItems);
+  // const favouriteItems = useSelector((state) => state.cart.favouriteItems);
 
   const toggleFavorite = () => {
     if (isFavorited) {

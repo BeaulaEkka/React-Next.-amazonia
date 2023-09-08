@@ -12,7 +12,6 @@ const LoginForm = () => {
   const [error, setError] = useState("");
 
   const { data: session } = useSession();
-  console.log("session-LoginPage", session);
 
   const router = useRouter();
 

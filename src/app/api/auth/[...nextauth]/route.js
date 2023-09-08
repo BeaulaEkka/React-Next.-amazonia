@@ -20,17 +20,14 @@ export const authOptions = {
           await connectMongoDB();
           const user = await User.findOne({ email });
           if (!user) {
-            console.log(`User not found for email: ${email}`);
             return null;
           }
           const passwordsMatch = await bcrypt.compare(password, user.password);
           if (!passwordsMatch) {
-            console.log(`Password does not match for user: ${email}`);
             return null;
           }
           return user;
         } catch (error) {
-          console.error("Error during authentication: ", error);
           console.log("Error: ", error);
         }
       },

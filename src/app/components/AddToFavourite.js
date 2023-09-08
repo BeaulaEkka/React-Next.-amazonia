@@ -6,7 +6,6 @@ import { FaHeart } from "react-icons/fa";
 export default function AddToFavourite({ product }) {
   const dispatch = useDispatch();
   const { favouriteItems } = useSelector((state) => state.cart);
-  console.log("favouriteItems", favouriteItems);
 
   const addToFavouriteHandler = () => {
     // Check if the product already exists in favorites

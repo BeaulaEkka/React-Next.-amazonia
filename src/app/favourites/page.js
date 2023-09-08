@@ -12,7 +12,7 @@ import { useSession } from "next-auth/react";
 const Page = () => {
   const router = useRouter();
   const { data: session } = useSession();
-  console.log("session-favourites", session);
+
   const dispatch = useDispatch();
   const favouriteItems = useSelector((state) => state.cart.favouriteItems);
 
