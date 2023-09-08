@@ -24,12 +24,11 @@ export default function AddToCart({
         if (existItem.qty + 1 <= product.countInStock) {
           newQty = existItem.qty + 1;
         } else {
-          return alert("No more product exist");
+          return alert("No more product exists");
         }
       }
     }
     dispatch(addToCart({ ...product, qty: newQty }));
-
     if (redirect) router.push("/cart");
   };
 

@@ -65,7 +65,7 @@ export default function ImageSlider() {
     <div className="max-w-[1920px] h-[500px] w-full mx-auto my-[-1rem]  relative group  ">
       <div
         style={{
-          backgroundImage: `url(${photos && photos[currentIndex]?.url})`,
+          backgroundImage: `url(${photos[currentIndex]?.url})`,
         }}
         className="w-full h-full bg-top bg-cover duration-500"
       ></div>

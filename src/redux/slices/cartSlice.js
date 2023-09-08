@@ -6,6 +6,7 @@ const initialState = Cookies.get("cart")
   : {
       loading: true,
       cartItems: [],
+      favouriteItems: [],
       shippingAddress: {},
       paymentMethod: "",
       saveShippingAddress: {},
@@ -42,6 +43,24 @@ const cartSlice = createSlice({
       Cookies.set("cart", JSON.stringify(state));
     },
 
+    // removeFromFavorite: (state, action) => {
+    //   const updatedState = state.filter((item) => item.id !== action.payload);
+    //   Cookies.set("cart", JSON.stringify(state));
+    //   return updatedState;
+    // },
+
+    addToFavourite: (state, action) => {
+      state.favouriteItems = [...state.favouriteItems, action.payload];
+      Cookies.set("cart", JSON.stringify(state));
+    },
+
+    removeFromFavorite: (state, action) => {
+      state.favouriteItems = state.favouriteItems.filter(
+        (item) => item.id !== action.payload
+      );
+      Cookies.set("cart", JSON.stringify(state));
+    },
+
     removeFromCart: (state, action) => {
       state.cartItems = state.cartItems.filter((x) => x.id !== action.payload);
       state.itemsPrice = addDecimals(
@@ -72,8 +91,10 @@ const cartSlice = createSlice({
 });
 
 export const {
+  loading,
   addToCart,
-
+  addToFavourite,
+  removeFromFavorite,
   removeFromCart,
   saveShippingAddress,
   savePaymentMethod,

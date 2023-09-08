@@ -26,7 +26,7 @@ const Page = () => {
   }, [paymentMethod, router]);
 
   return (
-    <div>
+    <div className="w-[80%] mx-auto">
       {" "}
       <CheckoutWizard activeStep={3} />
       <h1 className="mb-4 font-bold">Place Order</h1>

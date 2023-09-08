@@ -24,7 +24,7 @@ const Page = () => {
       <h1 className="mb-4 font-bold">Shopping Cart</h1>
       {loading ? (
         <div>loading</div>
-      ) : cartItems.length === 0 ? (
+      ) : cartItems && cartItems.length === 0 ? (
         <div>
           Cart is empty. <Link href="/">Go Shopping</Link>
         </div>
@@ -41,47 +41,48 @@ const Page = () => {
                 </tr>
               </thead>
               <tbody>
-                {cartItems.map((item) => (
-                  <tr key={item.id} className="border-b">
-                    <td>
-                      <Link
-                        href={`/product/${item.id}`}
-                        className="flex items-center"
-                      >
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          width={50}
-                          height={50}
-                        />
-                        <div className="pl-7">{item.name}</div>
-                      </Link>
-                    </td>
-                    <td className="p-5 text-right">
-                      <select
-                        value={item.qty}
-                        onChange={(e) =>
-                          addToCartHandler(item, Number(e.target.value))
-                        }
-                      >
-                        {[...Array(item.countInStock).keys()].map((x) => (
-                          <option key={x + 1} value={x + 1}>
-                            {x + 1}
-                          </option>
-                        ))}
-                      </select>
-                    </td>
-                    <td className="p-5 text-right">€{item.price}</td>
-                    <td className="p-5 text-center">
-                      <button
-                        className="default-button"
-                        onClick={() => removeFromCartHandler(item.id)}
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                {cartItems &&
+                  cartItems.map((item) => (
+                    <tr key={item.id} className="border-b">
+                      <td>
+                        <Link
+                          href={`/product/${item.id}`}
+                          className="flex items-center"
+                        >
+                          <Image
+                            src={item.image}
+                            alt={item.name}
+                            width={50}
+                            height={50}
+                          />
+                          <div className="pl-7">{item.name}</div>
+                        </Link>
+                      </td>
+                      <td className="p-5 text-right">
+                        <select
+                          value={item.qty}
+                          onChange={(e) =>
+                            addToCartHandler(item, Number(e.target.value))
+                          }
+                        >
+                          {[...Array(item.countInStock).keys()].map((x) => (
+                            <option key={x + 1} value={x + 1}>
+                              {x + 1}
+                            </option>
+                          ))}
+                        </select>
+                      </td>
+                      <td className="p-5 text-right">€{item.price}</td>
+                      <td className="p-5 text-center">
+                        <button
+                          className="default-button"
+                          onClick={() => removeFromCartHandler(item.id)}
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>
@@ -90,7 +91,8 @@ const Page = () => {
               <ul>
                 <li>
                   <div className="pb-3 text-xl">
-                    Subtotal({cartItems.reduce((a, c) => a + c.qty, 0)}) :€
+                    Subtotal(
+                    {cartItems && cartItems.reduce((a, c) => a + c.qty, 0)}) :€
                     {itemsPrice}
                   </div>
                 </li>

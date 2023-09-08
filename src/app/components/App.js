@@ -10,6 +10,7 @@ import { Footer } from "./Footer";
 const App = ({ children }) => {
   const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(hideLoading());
   }, [dispatch]);
@@ -22,7 +23,7 @@ const App = ({ children }) => {
         <main className="p-4">{children}</main>
       </div>
       <div className="absolute top-[7.5rem] right-0">
-        {cartItems.length > 0 && <CartSidebar />}
+        {cartItems && cartItems.length > 0 && <CartSidebar />}
       </div>
       <Footer />
     </div>

@@ -1,7 +1,6 @@
 "use client";
-
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function RegisterForm() {
@@ -9,8 +8,20 @@ export default function RegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState(""); // New state for success message
 
   const router = useRouter();
+
+  useEffect(() => {
+    // Clear success message after a few seconds
+    if (successMessage) {
+      const timer = setTimeout(() => {
+        setSuccessMessage("");
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [successMessage]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,11 +63,14 @@ export default function RegisterForm() {
         const form = e.target;
         form.reset();
         router.push("/login");
+        setSuccessMessage("Registration successful!"); // Set success message
+        setError("");
       } else {
-        console.log("User registration failed.");
+        console.log("User registration failed.", res.status);
       }
     } catch (error) {
       console.log("Error during registration: ", error);
+      setError("User registration failed.", error);
     }
   };
 
@@ -132,6 +146,11 @@ export default function RegisterForm() {
                   Register
                 </button>
               </div>
+              {successMessage && (
+                <div className="bg-green-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2">
+                  {successMessage}
+                </div>
+              )}
               {error && (
                 <div className="bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2">
                   {error}
