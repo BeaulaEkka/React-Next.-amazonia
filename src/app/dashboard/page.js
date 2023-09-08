@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 const Page = () => {
   const router = useRouter();
   const { data: session } = useSession();
-  console.log("session-dashboard", session);
 
   if (!session) {
     router.push("/login");

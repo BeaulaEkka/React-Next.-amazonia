@@ -9,7 +9,7 @@ import { BsHeart } from "react-icons/bs";
 
 const Header = () => {
   const { data: session } = useSession();
-  console.log("session-Header", session);
+
   const { loading, cartItems, favouriteItems } = useSelector(
     (state) => state.cart
   );
