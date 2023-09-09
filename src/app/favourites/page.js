@@ -8,6 +8,7 @@ import ProductRate from "../components/ProductRate";
 import { removeFromFavorite } from "@/redux/slices/cartSlice";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 const Page = () => {
   const router = useRouter();
@@ -26,10 +27,19 @@ const Page = () => {
     dispatch(removeFromFavorite(id));
   };
 
-  if (!session) {
-    router.push("/login");
-    return null;
-  }
+  useEffect(() => {
+    if (!session) {
+      router.push("/login");
+    }
+  }, [session, router]);
+
+  // useEffect(() => {
+  //   if (!session) {
+  //     // Set the original page URL as a query parameter
+  //     const returnUrl = "/favorites";
+  //     router.push(`/login?returnUrl=${encodeURIComponent(returnUrl)}`);
+  //   }
+  // }, [session, router]);
 
   return (
     <div className="w-[80%] mx-auto min-h-screen">

@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { BsGithub } from "react-icons/bs";
 
@@ -11,9 +11,15 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
 
   const router = useRouter();
+
+  useEffect(() => {
+    if (session) {
+      router.push("/dashboard");
+    }
+  }, [session, router]);
 
   const loginUser = async (e) => {
     e.preventDefault();
@@ -42,7 +48,7 @@ const LoginForm = () => {
       setEmail("");
       setPassword("");
 
-      router.push("/dashboard");
+      // router.push("/dashboard");
     } catch (error) {
       console.log(error);
     }
