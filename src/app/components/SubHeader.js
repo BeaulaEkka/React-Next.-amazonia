@@ -1,3 +1,4 @@
+"use client";
 import { signOut } from "next-auth/react";
 import { LuMenu } from "react-icons/lu";
 import { useSession } from "next-auth/react";

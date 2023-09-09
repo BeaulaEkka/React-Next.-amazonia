@@ -1,5 +1,4 @@
 "use client";
-
 import { addToCart, removeFromCart } from "@/redux/slices/cartSlice";
 import Image from "next/image";
 import Link from "next/link";

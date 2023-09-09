@@ -1,3 +1,4 @@
+"use client";
 import AddToCart from "@/app/components/AddToCart";
 import ProductRate from "@/app/components/ProductRate";
 import { data } from "@/app/utils/data";

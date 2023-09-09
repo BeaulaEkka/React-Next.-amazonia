@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 
 const CheckoutWizard = ({ activeStep = 0 }) => {
   return (
