@@ -3,7 +3,7 @@
 import { useSession } from "next-auth/react";
 import UserInfo from "../components/UserInfo";
 import DashboardContents from "../components/DashboardContents";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 
 const Page = () => {
   const router = useRouter();
