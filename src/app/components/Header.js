@@ -45,7 +45,7 @@ const Header = () => {
             <HiOutlineSearch />
           </span>
         </div>
-
+        {/* sign In */}
         <div
           onClick={() => signIn()}
           className="px-4 border border-transparent hover:border-white cursor-pointer duration-300  flex-col items-left justify-left h-[70%] "
@@ -61,12 +61,12 @@ const Header = () => {
         {/* </Link> */}
         {/* favourite */}
         <Link href="/favourites">
-          <div className="relative px-4 border border-transparent hover:border-white cursor-pointer duration-300  flex-col items-left justify-left h-[70%] ">
+          <div className="relative px-4 border border-transparent hover:border-white cursor-pointer duration-300  flex-col items-center justify-center h-[70%]  ">
             <div>
               <p className="text-sm hidden md:block">Orders</p>
               <p className="text-lg font-bold hidden md:block">& favourites</p>
             </div>
-            <div className="relative  mt-4 ">
+            <div className="relative">
               <div className="md:hidden text-3xl  text-amazonia_yellow ">
                 <BsHeart />
               </div>
@@ -76,7 +76,9 @@ const Header = () => {
                     {favouriteItems.length}
                   </span>
                 ) : (
-                  0
+                  <div className="bg-orange-400 px-2 rounded-lg absolute top-0 right-3 font-bold border border-red-500">
+                    0
+                  </div>
                 )}
               </div>
             </div>
@@ -86,7 +88,9 @@ const Header = () => {
                   {favouriteItems.length}
                 </span>
               ) : (
-                0
+                <span className="absolute top-0 right-12 font-bold text-amazonia_yellow">
+                  0{" "}
+                </span>
               )}
             </div>
           </div>
