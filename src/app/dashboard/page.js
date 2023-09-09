@@ -3,16 +3,18 @@
 import { useSession } from "next-auth/react";
 import UserInfo from "../components/UserInfo";
 import DashboardContents from "../components/DashboardContents";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const Page = () => {
   const router = useRouter();
   const { data: session } = useSession();
 
-  if (!session) {
-    router.push("/login");
-    return null;
-  }
+  useEffect(() => {
+    if (!session) {
+      router.push("/login");
+    }
+  }, [session, router]);
 
   return (
     <div className=" w-[80%] mx-auto flex flex-col justify-center">
