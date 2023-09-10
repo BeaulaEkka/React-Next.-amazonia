@@ -15,11 +15,11 @@ const LoginForm = () => {
 
   const router = useRouter();
 
-  // useEffect(() => {
-  //   if (session) {
-  //     router.push("/dashboard");
-  //   }
-  // }, [session, router]);
+  useEffect(() => {
+    if (session) {
+      router.push("/dashboard");
+    }
+  }, [session, router]);
 
   const loginUser = async (e) => {
     e.preventDefault();
