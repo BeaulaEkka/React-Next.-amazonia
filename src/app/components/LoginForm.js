@@ -15,11 +15,11 @@ const LoginForm = () => {
 
   const router = useRouter();
 
-  useEffect(() => {
-    if (session) {
-      router.push("/dashboard");
-    }
-  }, [session, router]);
+  // useEffect(() => {
+  //   if (session) {
+  //     router.push("/dashboard");
+  //   }
+  // }, [session, router]);
 
   const loginUser = async (e) => {
     e.preventDefault();
@@ -30,9 +30,16 @@ const LoginForm = () => {
         password,
         redirect: false,
       });
+      console.log("signIn response:", res);
 
       if (!email || !password) {
         setError(`Please provide a correct user name and a password`);
+        console.log(
+          `Please provide a correct user name and a password`,
+          email,
+          password,
+          res
+        );
         return null;
       }
 
@@ -42,7 +49,8 @@ const LoginForm = () => {
       }
 
       if (res.error) {
-        setError("Invalid Credentials:" + res.error);
+        setError(`Invalid Credentials: ${res.error.message}`);
+        console.error("Authentication Error:", res.error);
         return;
       }
       setEmail("");
