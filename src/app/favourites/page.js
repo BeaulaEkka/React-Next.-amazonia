@@ -33,14 +33,6 @@ const Page = () => {
     }
   }, [session, router]);
 
-  // useEffect(() => {
-  //   if (!session) {
-  //     // Set the original page URL as a query parameter
-  //     const returnUrl = "/favorites";
-  //     router.push(`/login?returnUrl=${encodeURIComponent(returnUrl)}`);
-  //   }
-  // }, [session, router]);
-
   return (
     <div className="w-[80%] mx-auto min-h-screen">
       {" "}

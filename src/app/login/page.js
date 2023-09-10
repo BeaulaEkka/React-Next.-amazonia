@@ -2,7 +2,7 @@ import LoginForm from "../components/LoginForm";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 
-const page = async () => {
+const Page = async () => {
   // The 'session' variable is fetched here but not used in this file.
   const session = await getServerSession(authOptions);
   console.log("login session:", session);
@@ -14,4 +14,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Page;
