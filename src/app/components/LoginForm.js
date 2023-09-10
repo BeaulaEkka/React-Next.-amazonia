@@ -32,7 +32,7 @@ const LoginForm = () => {
       });
 
       if (!email || !password) {
-        setError(`Please provide a user name and a password`);
+        setError(`Please provide a correct user name and a password`);
         return null;
       }
 
@@ -42,7 +42,7 @@ const LoginForm = () => {
       }
 
       if (res.error) {
-        setError("Invalid Credentials", res.error);
+        setError("Invalid Credentials:" + res.error);
         return;
       }
       setEmail("");
@@ -133,7 +133,7 @@ const LoginForm = () => {
 
               <div>
                 <button
-                  onClick={loginUser}
+                  onClick={() => loginUser}
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-amazonia_yellow px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-amazonia_light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
