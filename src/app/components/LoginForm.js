@@ -140,7 +140,7 @@ const LoginForm = () => {
                   Sign in
                 </button>
                 {error && (
-                  <div className="bg-red-500 text-sm text-white w-fit ml-2 mt-2 capitalize rounded-md px-2">
+                  <div className="bg-red-500 text-sm text-white w-fit ml-2 mt-2 normal-case rounded-md px-2">
                     {error}
                   </div>
                 )}
