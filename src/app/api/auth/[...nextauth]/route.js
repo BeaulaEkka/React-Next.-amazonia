@@ -20,6 +20,7 @@ export const authOptions = {
           await connectMongoDB();
           const user = await User.findOne({ email, password });
           if (!user) {
+            console.log(" AUTH PAGE", user);
             return null;
           }
           const passwordsMatch = await bcrypt.compare(password, user.password);
@@ -28,7 +29,7 @@ export const authOptions = {
           }
           return user;
         } catch (error) {
-          console.log("Error: ", error);
+          console.log("Error passwordsMatch: ", error);
         }
       },
     }),
