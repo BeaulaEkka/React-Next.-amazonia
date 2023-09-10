@@ -66,11 +66,10 @@ export default function RegisterForm() {
         setSuccessMessage("Registration successful!"); // Set success message
         setError("");
       } else {
-        setError("User registration failed.", res.status);
+        setError("User registration failed.", res.error, res.status);
       }
     } catch (error) {
       setError("User registration failed.", error);
-      return res.status(500).json({ error: "User registration failed" });
     }
   };
 
