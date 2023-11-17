@@ -7,5 +7,6 @@ import { redirect } from "next/dist/server/api-utils";
 export default async function Page() {
   const session = await getServerSession(authOptions);
   if (session) redirect("/dashboard");
+  if (!session) redirect("/");
   return <RegisterForm />;
 }
