@@ -2,7 +2,7 @@
 
 [https://amazonia-three.vercel.app/](https://amazonia-three.vercel.app/)
 
-Experience the thrill of a fully functional Amazon clone built from scratch for my portfolio project. Leveraging the power of Redux Toolkit and Tailwind CSS, this project showcases my skills in state management, responsive design, and frontend development.
+Experience the thrill of a fully functional Amazon clone built from scratch for my portfolio project. Leveraging the power of Redux Toolkit and Tailwind CSS, this project showcases my skills in state management, responsive design, authentication and frontend development.
 
 By bringing together Redux Toolkit and Tailwind CSS, I've not only crafted an Amazon clone that mirrors the original's functionality but also showcases my ability to harness cutting-edge tools to create a polished and professional portfolio piece.
 
